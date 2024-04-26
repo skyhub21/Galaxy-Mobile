@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contract Request</title>
+    <link rel="stylesheet" href="Styles/navBarStyle.css" />
+    <link rel="stylesheet" href="Styles/requestStyle.css" />
+  </head>
+  <body>
+    <!--NAVIGATION BAR-->
+    <nav class="navBar"> <!--Navigation bar as a container-->
+      <div class="logo"><img src="Images/samsung-logo.png" class="sam" /></div><!--Container for the samsung logo-->
+      <ul class="navLinks"> <!--Un-Ordered list container-->
+        
+        <li class="navLink">
+          <a href="index.html">HOME</a> <!--HOME-->
+        </li>
+
+        <li class="navLink services">
+          <a href="#" class="devicesDropDown">DEVICES <span class="dropDownIcon">&#11206</span></a> 
+          <ul class="dropDown">
+            <li>
+              <a href="devices.html">Phones</a>
+            </li>
+            <li>
+              <a href="laptop.html">Laptops</a>
+            </li>
+            <li>
+              <a href="watches.html">Watches</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="navLink">
+          <a href="about.html">ABOUT US</a>
+        </li>
+
+        <li class="navLink">
+          <a href="contact.html">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!--CONTENT SECTION-->
+    <div class="setView-Div">
+      <form class="form-Div" id="contractForm">
+        <h2>Contract Request</h2>
+        <p>Enter your Name</p>
+        <input type="text" placeholder="Your name" id="name" name="name" required />
+        <p>Enter your Surname</p>
+        <input type="text" placeholder="Your surname" id="surname" name="surname" required />
+        <p>Enter Cellphone No</p>
+        <input type="text" placeholder="Your cellphone number" id="cellNumber" name="cellNumber" required />
+        <p>Enter your Email</p>
+        <input type="text" placeholder="Your email" id="mail" name="email" required />
+        <p>Enter your ID No</p>
+        <input type="text" placeholder="Your Identity Number" id="Id" name="Id" required />
+        <p>Enter Product Type<br>
+           (Cellphone,Smart Watch etc)</p>
+        <input type="text" placeholder="Product Type" id="type" name="type" required />
+        <p>Enter Product Name</p>
+        <input type="text" placeholder="Product Name" id="productName" name="productName" required />
+        
+        <div class="button-Div">
+          <div><button class="submit" type="button" onclick="validateAndOpenPopup()">Submit</button></div>
+        </div>
+        <div class="terms-Div"><a href="terms.html">Terms & Conditions</a></div>
+      </form>
+    </div>
+    
+    <div class="popupContainer" id="popupContainer">
+      <div class="Popup" id="Popup">
+        <img src="ICONS/correct.jpg">
+        <h2>Thank you!</h2>
+        <p>Your Request has been successfully submitted.<br>
+          We will contact you as soon as we see your message. <br>Thanks! </p>
+        <button type="button" onclick="closePopup()"><a href="devices.html">OK</button>
+      </div>
+    </div>
+    
+    <script>
+      let popup = document.getElementById("Popup");
+      let form = document.getElementById("contractForm");
+    
+      function openPopup() {
+        popup.classList.add("open-popup");
+      }
+    
+      function closePopup() {
+        popup.classList.remove("open-popup");
+      }
+    
+      function validateAndOpenPopup() {
+        let name = document.getElementById("name").value.trim();
+        let surname = document.getElementById("surname").value.trim();
+        let cellNumber = document.getElementById("cellNumber").value.trim();
+        let mail = document.getElementById("mail").value.trim();
+        let Id = document.getElementById("Id").value.trim();
+        let type = document.getElementById("type").value.trim();
+        let productName = document.getElementById("productName").value.trim();
+    
+        if (name === "" || surname === "" || cellNumber === "" || mail === "" || Id === "" || type === "" || productName === "") {
+          alert("Please fill in all required fields.");
+        } else {
+          openPopup();
+        }
+      }
+    </script>
+    
+     
+  </body>
+</html>
